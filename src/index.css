@@ -5,13 +5,13 @@
 /* Custom Fonts */
 @font-face {
   font-family: Staatliches;
-  src: url("../public/Fonts/Staatliches-Regular.ttf");
+  src: url("/Fonts/Staatliches-Regular.ttf");
   font-weight: normal;
 }
 
 @font-face {
   font-family: SplineSansMono;
-  src: url("../public/Fonts/SplineSansMono-Regular.ttf");
+  src: url("/Fonts/SplineSansMono-Regular.ttf");
   font-weight: normal;
 }
 /* Custom Fonts */

@@ -8,10 +8,16 @@ export default function Header() {
       {/* Nav  */}
       <nav className="flex justify-between items-center">
         <img src="av.jpeg" alt="" className="w-10 h-10 rounded-full" />
-        <h2 className="text-textMain font-secundryFont tracking-widest">
-          {/* {<ThemeToggleButton isDark={theme} onChange={toggleTheme} invertedIconLogic />} */}
+        {/* <h2 className="text-textMain font-secundryFont tracking-widest">
+          {<ThemeToggleButton isDark={theme} onChange={toggleTheme} invertedIconLogic />}
           2024
-        </h2>
+        </h2> */}
+        {/* Language and dark mode buttons */}
+        <div>
+          <button style={{background:"#000000",color:"white"}} className="p-2 rounded-3xl mr-1 font-secundryFont text-buttonColor">Language</button>
+          <button style={{background:"#000000",color:"white"}} className="p-2 rounded-3xl mr-1 font-secundryFont text-buttonColor"> dark mode</button>
+        </div>
+        {/* ===Language and dark mode buttons=== */}
       </nav>
       {/* ===Nav=== */}
 
@@ -34,7 +40,7 @@ export default function Header() {
         {/* ===p container=== */}
 
         {/* Button Container */}
-        <div style={{ display: "flex", justifyContent: "left" }}>
+        <div className="flex justify-start ">
           <button
             style={{ backgroundColor: "#000000" }}
             className="px-4 py-2 mt-5 tracking-widest  text-buttonColor text-base font-bold font-secundryFont rounded-xl"
