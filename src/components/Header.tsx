@@ -7,15 +7,26 @@ export default function Header() {
     <div className="mb-24">
       {/* Nav  */}
       <nav className="flex justify-between items-center">
-        <img src="av.jpeg" alt="" className="w-10 h-10 rounded-full" />
+        <img src="./av.jpeg" alt="" className="w-10 h-10 rounded-full" />
         {/* <h2 className="text-textMain font-secundryFont tracking-widest">
           {<ThemeToggleButton isDark={theme} onChange={toggleTheme} invertedIconLogic />}
           2024
         </h2> */}
         {/* Language and dark mode buttons */}
         <div>
-          <button style={{background:"#000000",color:"white"}} className="p-2 rounded-3xl mr-1 font-secundryFont text-buttonColor">Language</button>
-          <button style={{background:"#000000",color:"white"}} className="p-2 rounded-3xl mr-1 font-secundryFont text-buttonColor"> dark mode</button>
+          <button
+            style={{ background: "#000000", color: "white" }}
+            className="p-2 rounded-3xl mr-1 font-secundryFont text-buttonColor"
+          >
+            Language
+          </button>
+          <button
+            style={{ background: "#000000", color: "white" }}
+            className="p-2 rounded-3xl mr-1 font-secundryFont text-buttonColor"
+          >
+            {" "}
+            dark mode
+          </button>
         </div>
         {/* ===Language and dark mode buttons=== */}
       </nav>
@@ -23,7 +34,8 @@ export default function Header() {
 
       {/* Header */}
       <header className="mt-24">
-        <h1 className="text-textMain font-mainFont text-7xl sm:text-2xl md:text-9xl lg:text-[12rem] xl:text-[14rem] 2xl:text-[16rem] leading-none text-center mb-8">
+        
+        <h1 className="text-textMain font-mainFont text-4xl sm:text-5xl md:text-7xl lg:text-9xl xl:text-[12rem] 2xl:text-[14rem] leading-tight sm:leading-none text-center mb-4 sm:mb-6 md:mb-8">
           Abdulmalek
         </h1>
 

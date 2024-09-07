@@ -9,6 +9,9 @@ export default {
     colors: {
       textMain: "#772F1A",
       buttonColor: "#F2A65A",
+      footerColor:"#585123",
+      backGroundColor:"#ececec",
+      contactButtonColor:"#F58549",
     },
     fontFamily: {
       mainFont: ["Staatliches"],

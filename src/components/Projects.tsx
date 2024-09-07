@@ -2,6 +2,7 @@
 import { Code, ExternalLink, Github } from "lucide-react";
 // External Librarise
 // React
+import { useState } from "react";
 // React
 
 const TechStackItem = ({ tech }: { tech: string }) => (
@@ -13,6 +14,7 @@ const TechStackItem = ({ tech }: { tech: string }) => (
   </span>
 );
 export default function Projects() {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const techStack: string[] = [
     "JavaScript",
     "React",
@@ -29,56 +31,46 @@ export default function Projects() {
     "GitHub",
     "Postman",
   ];
+
   return (
     <>
-      <div className="mb-24">
-        <h1 className="text-textMain font-mainFont font-bold lg:text-5xl md:text-3xl sm:text-2xl tracking-widest bg-buttonColor flex justify-start">
-          Projects Showcase
-        </h1>
-      </div>
-
-      <div className="">
+      <div>
         <button
           type="button"
-          className="hs-collapse-toggle w-full py-3 px-6 flex items-center justify-between gap-x-2 text-lg font-medium rounded-lg border border-transparent text-textMain focus:outline-none disabled:opacity-50 disabled:pointer-events-none"
-          id="hs-basic-collapse"
-          aria-expanded="false"
-          aria-controls="hs-basic-collapse-heading"
-          data-hs-collapse="#hs-basic-collapse-heading"
+          className="hs-collapse-toggle  w-full mb-3 py-3 px-6 flex items-center justify-between gap-x-2 text-lg font-medium rounded-lg border border-transparent text-textMain focus:outline-none disabled:opacity-50 disabled:pointer-events-none"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
         >
           <span>URL Shortener</span>
           <svg
-            className="hs-collapse-open:rotate-180 shrink-0 size-4 text-white"
+             className={`shrink-0 size-4 text-white transition-transform duration-300 ${
+              isOpen ? "rotate-180" : ""
+            }`}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
             <path d="m6 9 6 6 6-6"></path>
           </svg>
         </button>
         <div
-          id="hs-basic-collapse-heading"
-          className="hs-collapse hidden w-full overflow-hidden transition-[height] duration-300"
-          aria-labelledby="hs-basic-collapse"
+          className={`transition-all duration-300 ease-in-out overflow-hidden ${
+            isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+          }`}
         >
-          {/* what is the project grid */}
           <div className="mt-5">
             <div className="grid grid-cols-12 max-h-fit ">
-              <div
-                style={{ background: "#ececec" }}
-                className="col-span-12  p-4 rounded-3xl mb-5 shadow-md hover:shadow-lg transition-all ease-in-out delay-150"
-              >
-                <h1 className="sm:text-3xl md:text-4xlfont-bold font-mainFont text-textMain tracking-widest flex justify-start lg:text-5xl">
+              <div className="col-span-12 bg-backGroundColor  p-4 rounded-3xl mb-5 shadow-md hover:shadow-lg transition-all ease-in-out delay-150">
+                <h1 className="sm:text-3xl md:text-4xlfont-bold font-mainFont text-textMain tracking-wide flex justify-start lg:text-5xl">
                   What is the project?
                 </h1>
                 <p className="mb-4 font-secundryFont">
-                  {" "}
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex a
                   tempora odit quas reiciendis, at voluptatum eos reprehenderit
                   voluptas explicabo inventore, eveniet deserunt delectus
@@ -90,15 +82,8 @@ export default function Projects() {
                 </p>
               </div>
             </div>
-            {/* what is the project grid */}
-
-            {/* Second Grid */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-5 h-full mb-10">
-              {/* Tech Stack Grid */}
-              <div
-                style={{ background: "#ececec" }}
-                className="col-span-1 md:col-span-12 lg:col-span-6 rounded-3xl p-4 shadow-md hover:shadow-lg transition-all ease-in-out delay-150 "
-              >
+              <div className="col-span-1 bg-backGroundColor md:col-span-12 lg:col-span-6 rounded-3xl p-4 shadow-md hover:shadow-lg transition-all ease-in-out delay-150 ">
                 <h2 className="text-2xl text-textMain md:text-3xl font-bold  tracking-wide mb-4 flex items-center">
                   <Code className="mr-2" /> Tech Stack
                 </h2>
@@ -108,18 +93,10 @@ export default function Projects() {
                   })}
                 </p>
               </div>
-              {/* ===Tech Stack Grid=== */}
-
-              {/* Links Grid */}
-              <div
-                style={{ background: "#ececec" }}
-                className="lg:col-span-6 md:col-span-12 rounded-3xl p-6 shadow-md hover:shadow-lg transition-all ease-in-out delay-150"
-              >
+              <div className="lg:col-span-6 bg-backGroundColor md:col-span-12 rounded-3xl p-6 shadow-md hover:shadow-lg transition-all ease-in-out delay-150">
                 <h2 className="text-textMain text-2xl md:text-3xl font-bold  tracking-wide mb-4 flex items-center">
                   <ExternalLink className="mr-2" /> Links
                 </h2>
-                {/* Links Container */}
-
                 <div className="space-y-4 h-full w-full flex flex-col justify-evely gap-4">
                   <a
                     href="#"
@@ -129,7 +106,6 @@ export default function Projects() {
                     <ExternalLink className="mr-2" size={20} />
                     Visit Website
                   </a>
-
                   <a
                     href="#"
                     style={{ backgroundColor: "#1f2937", color: "white" }}
@@ -139,11 +115,8 @@ export default function Projects() {
                     View on GitHub
                   </a>
                 </div>
-                {/* === Links Container === */}
               </div>
-              {/* ===Links Grid=== */}
             </div>
-            {/* === Second Grid === */}
           </div>
         </div>
       </div>
