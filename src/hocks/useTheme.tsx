@@ -25,18 +25,27 @@ const useTheme = (): { theme: Theme; toggleTheme: () => void } => {
     return preferredTheme;
   };
 
-  const [theme, setTheme] = useState<Theme>(initializeTheme);
+  const [theme, setTheme] = useState<Theme>(initializeTheme());
 
-  // Toggle between light and dark theme
-  const toggleTheme = (): void => {
-    const newTheme: Theme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
+  const applyTheme = (newTheme: Theme) => {
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(newTheme);
     localStorage.setItem("theme", newTheme);
   };
 
+  // Toggle between light and dark theme
+  const toggleTheme = (): void => {
+    setTheme((prevTheme) => {
+      const newTheme: Theme = prevTheme === "light" ? "dark" : "light";
+      applyTheme(newTheme);
+      return newTheme;
+    });
+  };
+
   // Update the className of the body tag whenever the theme changes
+  // Apply the theme when the component mounts
   useEffect(() => {
-    document.body.className = theme;
+    applyTheme(theme);
   }, [theme]);
 
   return { theme, toggleTheme };
