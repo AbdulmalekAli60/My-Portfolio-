@@ -17,9 +17,19 @@ html {
 body {
   background-color: var(--color-background-light);
   transition: background-color 0.3s ease;
+  
 }
 
 .dark body {
   background-color: var(--color-background-dark);
+  transition: background-color 0.3s ease;
 
+}
+
+.clip-path-circle-10 {
+  clip-path: circle(10% at top right);
+}
+
+.clip-path-circle-100 {
+  clip-path: circle(150% at top right);
 }

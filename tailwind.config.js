@@ -25,6 +25,7 @@ export default {
       contactButtonColor: "#F58549",
       visitWebsiteButtonColor:"#2560eb", 
       gitHubButtonColor:"#1f2937",
+      navigationMenu:"#708b70",
       // Dark colors ====================
       darkButtonColor:"#772F1A",
       darkFooterColor:"#6A6329",

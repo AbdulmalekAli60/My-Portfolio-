@@ -3,6 +3,7 @@ import useTheme from "../hocks/useTheme.tsx";
 
 // External Libraries
 import { Languages } from "lucide-react";
+import img from "../assets/av.jpeg"
 // External Libraries
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -12,20 +13,22 @@ export default function Header() {
     <div className="mb-24">
       {/* Nav  */}
       <nav className="flex justify-between items-center">
-        <img src="./av.jpeg" alt="" className="w-10 h-10 rounded-full" />
+        <img src={img} alt="" className="w-10 h-10 rounded-full" />
         {/* Language and dark mode buttons */}
-        <div className="flex justify-between gap-4">
-          <button className="p-2 rounded-3xl  text-textMain dark:text-darkTextMain hover:opacity-55  transition-colors duration-300">
-            <Languages />
+        
+        <div className="flex justify-between mr-10   gap-2">
+          <button className=" rounded-3xl p-3 flex justify-center items-center text-textMain dark:text-darkTextMain hover:opacity-55  transition-colors duration-300">
+            <Languages  />
           </button>
-          <button className="p-2 rounded-3xl  hover:opacity-55  transition-colors duration-300">
+          
+          <button onClick={toggleTheme} className="rounded-3xl p-3 flex justify-center items-center  hover:opacity-55  transition-colors duration-300">
             <input
               type="checkbox"
               id="theme-toggle"
               name="light-switch"
               className="light-switch sr-only"
               checked={theme === "light"}
-              onChange={toggleTheme}
+              onClick={toggleTheme}
             />
             <label
               className="relative cursor-pointer p-2"
