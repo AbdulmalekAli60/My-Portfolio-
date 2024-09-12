@@ -3,7 +3,9 @@ import useTheme from "../hocks/useTheme.tsx";
 
 // External Libraries
 import { Languages } from "lucide-react";
-import img from "../assets/av.jpeg"
+import img from "../assets/av.jpeg";
+
+import { HashLink as Link } from "react-router-hash-link";
 // External Libraries
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -13,15 +15,18 @@ export default function Header() {
     <div className="mb-24">
       {/* Nav  */}
       <nav className="flex justify-between items-center">
-        <img src={img} alt="" className="w-10 h-10 rounded-full" />
+        <img src={img} alt="avavtar" className="w-10 h-10 rounded-full" />
         {/* Language and dark mode buttons */}
-        
+
         <div className="flex justify-between mr-10   gap-2">
           <button className=" rounded-3xl p-3 flex justify-center items-center text-textMain dark:text-darkTextMain hover:opacity-55  transition-colors duration-300">
-            <Languages  />
+            <Languages />
           </button>
-          
-          <button onClick={toggleTheme} className="rounded-3xl p-3 flex justify-center items-center  hover:opacity-55  transition-colors duration-300">
+
+          <button
+            onClick={toggleTheme}
+            className="rounded-3xl p-3 flex justify-center items-center  hover:opacity-55  transition-colors duration-300"
+          >
             <input
               type="checkbox"
               id="theme-toggle"
@@ -87,12 +92,14 @@ export default function Header() {
 
         {/* Button Container */}
         <div className="flex justify-start ">
-          <button
-            style={{ backgroundColor: "#000000" }}
-            className="px-4 py-2 mt-5 tracking-widest  text-buttonColor dark:text-darkButtonColor border-white text-base font-bold font-secundryFont rounded-xl"
-          >
-            Contact
-          </button>
+          <Link smooth to="#contact">
+            <button
+              style={{ backgroundColor: "#000000" }}
+              className="px-4 py-2 mt-5 tracking-widest  text-buttonColor dark:text-darkButtonColor border-white text-base font-bold font-secundryFont rounded-xl"
+            >
+              Contact
+            </button>
+          </Link>
         </div>
         {/* ===Button Container=== */}
       </header>

@@ -31,8 +31,7 @@ const Input = ({ inputName, placeHolder }: InputProps) => {
 export default function Contact() {
   return (
     <>
-      <a href="#conatct">
-        <div className="mb-24">
+        <div className="mb-24" id="contact">
           <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-24 mb-10">
             <h1 className="text-footerColor dark:text-darkFooterColor font-mainFont font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-widest text-center">
               Contact
@@ -62,7 +61,6 @@ export default function Contact() {
           </div>
           {/* Textarea container */}
         </div>
-      </a>
     </>
   );
 }

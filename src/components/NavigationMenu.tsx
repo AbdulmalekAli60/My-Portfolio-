@@ -1,8 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { HashLink as Link } from "react-router-hash-link";
 
 export default function NavigationMenu() {
   const [isVisible, setIsVisible] = useState(false);
+
+  // Remove name of section
+  useEffect(() => {
+    const handleScroll = () => {
+      const hash = window.location.hash.substring(1); // Remove the "#"
+      if (hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          const scrollPosition = window.scrollY;
+          const windowHeight = window.innerHeight;
+
+          
+          if (scrollPosition < offsetTop - windowHeight / 2 || 
+              scrollPosition > offsetTop + offsetHeight - windowHeight / 2) {
+            // Remove the hash from the URL
+            window.history.replaceState(null, '', window.location.pathname);
+          }
+        }
+      }
+    };
+
+    //clean up
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  // === Remove name of section ===
+
 
   return (
     <div
@@ -21,7 +50,6 @@ export default function NavigationMenu() {
           <Menu className="text-black" />
         )}
       </button>
-      {/* === Toggle Button === */}
 
       {/* Navigation Menu */}
       <div
@@ -32,27 +60,22 @@ export default function NavigationMenu() {
             : "clip-path-circle-10 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full text-textMain font-mainFont">
-          <nav className="text-4xl space-y-8">
-            <a href="/" className="block hover:opacity-75 transition-colors">
+        <div className="flex flex-col items-center justify-center h-full text-textMain font-secundryFont">
+          <nav className="text-4xl flex flex-col space-y-10">
+            <Link smooth to="#home" className="block hover:opacity-75 transition-colors">
               Home
-            </a>
-            <a
-              href="/projects"
-              className="block hover:opacity-75 transition-colors"
-            >
+            </Link>
+            
+            <Link smooth to="#projects" className="block hover:opacity-75 transition-colors">
               Projects
-            </a>
-            <a
-              href="/contact"
-              className="block hover:opacity-75 transition-colors"
-            >
+            </Link>
+            
+            <Link smooth to="#contact" className="block hover:opacity-75 transition-colors">
               Contact
-            </a>
+            </Link>
           </nav>
         </div>
       </div>
-      {/* === Navigation Menu === */}
     </div>
   );
 }
