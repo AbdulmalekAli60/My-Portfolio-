@@ -1,9 +1,10 @@
 // External Librarise
 import emailjs from "@emailjs/browser";
+import { Loader, Check } from "lucide-react";
 // emailjs.init(import.meta.env.VITE_EMAILJS_API_KEY);
 // External Librarise
 // React
-import { ChangeEvent, useState,  FormEvent } from "react";
+import { ChangeEvent, useState, FormEvent } from "react";
 // React
 
 interface EmailInfo {
@@ -25,24 +26,18 @@ const Input = ({
   changeInputValue,
 }: InputProps) => {
   return (
-    <>
-      <div className="flex justify-center">
-        {/* Inputs + send Button Container */}
-        <div className="w-96 h-fit mb-3">
-          <span className="font-secundryFont font-bold flex justify-start text-textMain dark:text-darkTextMain tracking-widest mb-1">
-            {inputName}
-          </span>
-          <input
-            type="text"
-            placeholder={placeHolder}
-            value={stateValue}
-            onChange={changeInputValue}
-            className="py-3 px-4 w-full border-buttonColor rounded-lg text-sm bg-backGroundColor dark:bg-darkBackGroundColor"
-          />
-        </div>
-        {/* === Inputs + send Button Container === */}
-      </div>
-    </>
+    <div className="w-full mb-3">
+      <span className="font-secundryFont font-bold flex justify-start text-textMain dark:text-darkTextMain tracking-widest mb-1">
+        {inputName}
+      </span>
+      <input
+        type="text"
+        placeholder={placeHolder}
+        value={stateValue}
+        onChange={changeInputValue}
+        className="py-3 px-4 w-full border-buttonColor rounded-lg text-sm bg-backGroundColor dark:bg-darkBackGroundColor"
+      />
+    </div>
   );
 };
 export default function Contact() {
@@ -52,17 +47,20 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [sendingState, setSendingState] = useState<string>("default"); // 'default', 'sending', 'sent'
 
   // const formRef = useRef<HTMLFormElement>(null);
 
-  const handleInputChange = (field: keyof EmailInfo) => (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const value = event.target.value;
-    setEmailInformation(prev => ({ ...prev, [field]: value }));
-  };
+  const handleInputChange =
+    (field: keyof EmailInfo) =>
+    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const value = event.target.value;
+      setEmailInformation((prev) => ({ ...prev, [field]: value }));
+    };
 
   const handleSendEmail = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    setSendingState("sending");
     const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
     const API_KEY = import.meta.env.VITE_EMAILJS_API_KEY;
@@ -72,19 +70,31 @@ export default function Contact() {
       return;
     }
 
-    emailjs.send(SERVICE_ID, TEMPLATE_ID,  emailInformation as unknown as Record<string, unknown>, API_KEY)
+    emailjs
+      .send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        emailInformation as unknown as Record<string, unknown>,
+        API_KEY
+      )
       .then((result) => {
-        console.log('SUCCESS!', result.text);
+        // console.log("SUCCESS!", result.text);
         setEmailInformation({
           from_name: "",
           from_email: "",
           subject: "",
           message: "",
         });
-      }, (error) => {
-        console.log('FAILED...', error.text);
+        setSendingState("sent");
+        setTimeout(() => {
+          setSendingState("default");
+        }, 3000);
+      })
+      .catch(() => {
+        alert("Error");
+        setSendingState("default");
       });
-  }
+  };
 
   return (
     <div className="mb-24" id="contact">
@@ -92,10 +102,12 @@ export default function Contact() {
         <h1 className="text-footerColor dark:text-darkFooterColor font-mainFont font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-widest text-center">
           Contact
         </h1>
-        {/* form container */}
-        <div className="bg-red-500">
-        <form onSubmit={handleSendEmail} className="flex flex-col items-center">
-          <div className="w-96">
+         {/* form container */}
+         <div className="max-w-md mx-auto">
+          <form
+            onSubmit={handleSendEmail}
+            className="flex flex-col"
+          >
             <Input
               inputName="Name"
               stateValue={emailInformation.from_name}
@@ -135,10 +147,17 @@ export default function Contact() {
               type="submit"
               className="px-4 py-2 mt-5 tracking-widest w-full opacity-100 hover:opacity-70 transition-all duration-300 bg-contactButtonColor text-base font-secundryFont rounded-xl"
             >
-              Send
+              <div className="flex justify-center items-center">
+                {sendingState === "default" && "Send"}
+                {sendingState === "sending" && (
+                  <Loader className="mr-2 dark:text-white" />
+                )}
+                {sendingState === "sent" && (
+                  <Check className="mr-2 dark:text-white" />
+                )}
+              </div>
             </button>
-          </div>
-        </form>
+          </form>
         </div>
         {/* form container */}
       </div>

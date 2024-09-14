@@ -57,7 +57,7 @@ export default function NavigationMenu() {
         className={`fixed inset-0 bg-navigationMenu transition-[clip-path] duration-500 ease-in-out ${
           isVisible
             ? "clip-path-circle-100 pointer-events-auto"
-            : "clip-path-circle-10 pointer-events-none"
+            : "clip-path-circle-0 pointer-events-none fixed"
         }`}
       >
         <div className="flex flex-col items-center justify-center h-full text-textMain font-secundryFont">
