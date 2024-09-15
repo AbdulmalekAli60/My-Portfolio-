@@ -6,41 +6,60 @@ export default {
     "./node_modules/preline/preline.js",
   ],
   darkMode: "class",
-  
+
   theme: {
     container: {
       padding: "2rem",
     },
     extend: {
       backgroundColor: {
-        light: '#ececec',  // Your light mode background color
-        dark: '#121212',   // Your dark mode background color
+        light: "#ececec", // Your light mode background color
+        dark: "#121212", // Your dark mode background color
       },
 
-    colors: {
-      textMain: "#772F1A",
-      buttonColor: "#F2A65A",
-      footerColor: "#585123",
-      backGroundColor: "#ececec",
-      contactButtonColor: "#F58549",
-      visitWebsiteButtonColor:"#2560eb", 
-      gitHubButtonColor:"#1f2937",
-      navigationMenu:"#708b70",
-      // Dark colors ====================
-      darkButtonColor:"#772F1A",
-      darkFooterColor:"#6A6329",
-      darkBackGroundColor:"#F0E6D2", 
-      // #F0E3F0
-      // contactButtonColor:"" same
-      darkVisitWebsiteButtonColor:"#4080FF",
-      darkGitHubButtonColor:"#3A4B66",
-      darkTextMain:"#F2A65A",
-      white:"#fff",
+      colors: {
+        textMain: "#772F1A",
+        buttonColor: "#F2A65A",
+        footerColor: "#585123",
+        backGroundColor: "#ececec",
+        contactButtonColor: "#F58549",
+        visitWebsiteButtonColor: "#2560eb",
+        gitHubButtonColor: "#1f2937",
+        navigationMenu: "#708b70",
+        // Dark colors ====================
+        darkButtonColor: "#772F1A",
+        darkFooterColor: "#6A6329",
+        darkBackGroundColor: "#F0E6D2",
+        // #F0E3F0
+        // contactButtonColor:"" same
+        darkVisitWebsiteButtonColor: "#4080FF",
+        darkGitHubButtonColor: "#3A4B66",
+        darkTextMain: "#F2A65A",
+        white: "#fff",
+      },
+      fontFamily: {
+        mainFont: ["Staatliches"],
+        secundryFont: ["SplineSansMono"],
+        mainArabic: ["Tajawal"],
+        secondryArabic: ["NotoSansArabic"],
+      },
     },
-    fontFamily: {
-      mainFont: ["Staatliches"],
-      secundryFont: ["SplineSansMono"],
+
+    variants: {
+      extend: {
+        fontFamily: ["lang"],
+      },
     },
+
+    plugins: [
+      function ({ addVariant, e }) {
+        addVariant("lang-ar", ({ modifySelectors, separator }) => {
+          modifySelectors(({ className }) => {
+            return `.lang-ar .${e(`lang-ar${separator}${className}`)}`;
+          });
+        });
+      },
+    ],
+    //  [require("preline/plugin")],
   },
-  plugins: [require("preline/plugin")],
-}}
+};

@@ -30,7 +30,7 @@ function App() {
       <NavigationMenu />
       <Header />
       <div className="mb-8 sm:mb-12 md:mb-16 lg:mb-24" id="projects">
-        <h1 className="text-textMain dark:text-darkTextMain p-1 rounded-md font-mainFont font-bold  text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-widest bg-buttonColor dark:bg-darkButtonColor flex justify-start">
+        <h1 className="text-textMain lang-ar:bg-red dark:text-darkTextMain p-1 rounded-md font-mainFont font-bold  text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-widest bg-buttonColor dark:bg-darkButtonColor flex justify-start">
           Projects Showcase
         </h1>
       </div>

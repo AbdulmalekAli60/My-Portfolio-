@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-primary {
+    @apply font-en-primary lang-ar:font-ar-primary;
+  }
+  .text-secondary {
+    @apply font-en-secondary lang-ar:font-ar-secondary;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -18,6 +27,21 @@
   src: url("/Fonts/SplineSansMono-Regular.ttf");
   font-weight: normal;
 }
+
+/* Arabic fonts */
+@font-face {
+  font-family: NotoSansArabic;
+  src: url("/Fonts/NotoSansArabic-Regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Tajawal;
+  src: url("/Fonts/Tajawal-Regular.ttf");
+  font-weight: normal;
+}
+/* === Arabic fonts === */
+
 /* === Custom Fonts === */
 
 

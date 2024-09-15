@@ -80,7 +80,7 @@ export default function Header() {
 
         {/* p container */}
         <div className="max-w-3xl">
-          <p className="mt-16 text-left text-lg font-secundryFont  text-textMain dark:text-darkTextMain">
+          <p className="mt-16 text-left text-lg font-secundryFont text-textMain dark:text-darkTextMain">
             Unleashing the future of innovation in software development and
             turning ideas into reality, this is the portfolio of a student
             championing the software world. This is the gateway to marvel at the
@@ -93,10 +93,7 @@ export default function Header() {
         {/* Button Container */}
         <div className="flex justify-start ">
           <Link smooth to="#contact">
-            <button
-              style={{ backgroundColor: "#000000" }}
-              className="px-4 py-2 mt-5 tracking-widest  text-buttonColor dark:text-darkButtonColor border-white text-base font-bold font-secundryFont rounded-xl"
-            >
+            <button className="px-4 py-2 mt-5 tracking-widest bg-black  text-buttonColor dark:text-darkButtonColor border-white text-base font-bold font-secundryFont rounded-xl">
               Contact
             </button>
           </Link>
