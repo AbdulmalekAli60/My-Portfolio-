@@ -1,32 +1,35 @@
 import "./App.css";
+
+//React
+//React
+
+//External Libraries
+//External Libraries
+
+//Components + hocks
 import Header from "./components/Header";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-// import { useEffect } from "react";
-// import { useLocation } from 'react-router-dom';
-import useTheme from "./hocks/useTheme";
-// import { BrowserRouter, Routes } from "react-router-dom";
-import "preline/preline";
 import NavigationMenu from "./components/NavigationMenu";
-// import { IStaticMethods } from "preline/preline";
+import projectsData from "../src/data/projects.json";
 
-// declare global {
-//   interface Window {
-//     HSStaticMethods: IStaticMethods;
-//   }
-// }
+//Components + hocks
+
+export interface Project {
+  projectsID: number;
+  projectName: string;
+  projectDescription: string;
+  techStack: string[];
+  links: {
+    netlifyLink: string;
+    repoLink: string;
+  };
+}
 function App() {
-  // const location = useLocation();
-  const { theme } = useTheme();
-
-  // useEffect(() => {
-  //   window.HSStaticMethods.autoInit();
-  // }, []);
-
+  const projects: Project[] = projectsData as Project[];
   return (
-    <div className={`container ${theme}`} id="home">
-      {/* <div className=" dark:bg-dark transition-colors duration-150"> */}
+    <div className={`container`} id="home">
       <NavigationMenu />
       <Header />
       <div className="mb-8 sm:mb-12 md:mb-16 lg:mb-24" id="projects">
@@ -35,7 +38,9 @@ function App() {
         </h1>
       </div>
 
-      <Projects />
+      {projects.map((p) => {
+        return <Projects key={p.projectsID} {...p} />;
+      })}
       <Contact />
       <Footer />
       {/* </div> */}

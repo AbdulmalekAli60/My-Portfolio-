@@ -77,8 +77,7 @@ export default function Contact() {
         emailInformation as unknown as Record<string, unknown>,
         API_KEY
       )
-      .then((result) => {
-        // console.log("SUCCESS!", result.text);
+      .then(() => {
         setEmailInformation({
           from_name: "",
           from_email: "",
@@ -102,12 +101,9 @@ export default function Contact() {
         <h1 className="text-footerColor dark:text-darkFooterColor font-mainFont font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-widest text-center">
           Contact
         </h1>
-         {/* form container */}
-         <div className="max-w-md mx-auto">
-          <form
-            onSubmit={handleSendEmail}
-            className="flex flex-col"
-          >
+        {/* form container */}
+        <div className="max-w-md mx-auto">
+          <form onSubmit={handleSendEmail} className="flex flex-col">
             <Input
               inputName="Name"
               stateValue={emailInformation.from_name}

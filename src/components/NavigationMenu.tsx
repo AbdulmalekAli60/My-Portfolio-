@@ -16,22 +16,22 @@ export default function NavigationMenu() {
           const scrollPosition = window.scrollY;
           const windowHeight = window.innerHeight;
 
-          
-          if (scrollPosition < offsetTop - windowHeight / 2 || 
-              scrollPosition > offsetTop + offsetHeight - windowHeight / 2) {
+          if (
+            scrollPosition < offsetTop - windowHeight / 2 ||
+            scrollPosition > offsetTop + offsetHeight - windowHeight / 2
+          ) {
             // Remove the hash from the URL
-            window.history.replaceState(null, '', window.location.pathname);
+            window.history.replaceState(null, "", window.location.pathname);
           }
         }
       }
     };
 
     //clean up
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   // === Remove name of section ===
-
 
   return (
     <div
@@ -62,15 +62,27 @@ export default function NavigationMenu() {
       >
         <div className="flex flex-col items-center justify-center h-full text-textMain font-secundryFont">
           <nav className="text-4xl flex flex-col space-y-10">
-            <Link smooth to="#home" className="block hover:opacity-75 transition-colors">
+            <Link
+              smooth
+              to="#home"
+              className="block hover:opacity-75 transition-colors"
+            >
               Home
             </Link>
-            
-            <Link smooth to="#projects" className="block hover:opacity-75 transition-colors">
+
+            <Link
+              smooth
+              to="#projects"
+              className="block hover:opacity-75 transition-colors"
+            >
               Projects
             </Link>
-            
-            <Link smooth to="#contact" className="block hover:opacity-75 transition-colors">
+
+            <Link
+              smooth
+              to="#contact"
+              className="block hover:opacity-75 transition-colors"
+            >
               Contact
             </Link>
           </nav>

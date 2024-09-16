@@ -5,32 +5,22 @@ import { Code, ExternalLink, Github } from "lucide-react";
 import { useState } from "react";
 // React
 
+import { Project } from "../App";
 const TechStackItem = ({ tech }: { tech: string }) => (
   <span
-    // style={{ backgroundColor: "#e5e7eb" }}
-    className="inline-flex items-center p-3 dark:text-darkTextMain dark:bg-darkGitHubButtonColor  rounded-full text-sm font-medium  mr-2 mb-2"
+    style={{ backgroundColor: "#e5e7eb" }}
+    className="inline-flex items-center p-3 flex-grow justify-center dark:text-textMain  rounded-full text-sm font-medium  mr-2 mb-2"
   >
     {tech}
   </span>
 );
-export default function Projects() {
+export default function Projects({
+  projectName,
+  projectDescription,
+  techStack,
+  links,
+}: Project) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const techStack: string[] = [
-    "JavaScript",
-    "React",
-    "Java",
-    "Spring Boot",
-    "HTML",
-    "SQL",
-    "Node",
-    "CSS",
-    "Figma",
-    "Tailwind CSS",
-    "Material UI",
-    "Git",
-    "GitHub",
-    "Postman",
-  ];
 
   return (
     <>
@@ -41,7 +31,7 @@ export default function Projects() {
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
         >
-          <span>URL Shortener</span>
+          <span>{projectName}</span>
           <svg
             className={`shrink-0 size-4 text-textMain dark:text-white transition-transform duration-300 ${
               isOpen ? "rotate-180" : ""
@@ -70,16 +60,7 @@ export default function Projects() {
                 <h1 className="sm:text-3xl md:text-4xlfont-bold font-mainFont text-textMain dark:text-darkTextMain tracking-wide flex justify-start lg:text-5xl">
                   What is the project?
                 </h1>
-                <p className="mb-4 font-secundryFont">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex a
-                  tempora odit quas reiciendis, at voluptatum eos reprehenderit
-                  voluptas explicabo inventore, eveniet deserunt delectus
-                  quaerat provident expedita et fugit pariatur. Lorem ipsum
-                  dolor sit amet consectetur adipisicing elit. Nam accusantium
-                  itaque corrupti ab, et quaerat debitis hic consectetur nemo?
-                  Repellat commodi eum excepturi mollitia corporis ipsam tempora
-                  fugiat, ut iure.
-                </p>
+                <p className="mb-4 font-secundryFont">{projectDescription}</p>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-5 h-full mb-10">
@@ -99,7 +80,7 @@ export default function Projects() {
                 </h2>
                 <div className="space-y-4 h-full w-full flex flex-col justify-evely gap-4">
                   <a
-                    href="#"
+                    href={links.netlifyLink}
                     style={{ color: "white" }}
                     className="w-full bg-visitWebsiteButtonColor dark:bg-darkVisitWebsiteButtonColor text-center py-2 px-4 rounded-lg  flex items-center justify-center"
                   >
@@ -107,7 +88,7 @@ export default function Projects() {
                     Visit Website
                   </a>
                   <a
-                    href="#"
+                    href={links.repoLink}
                     style={{ color: "white" }}
                     className=" w-full text-center bg-gitHubButtonColor dark:bg-darkGitHubButtonColor py-2 px-4 rounded-lg flex items-center justify-center"
                   >

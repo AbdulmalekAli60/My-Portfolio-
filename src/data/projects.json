@@ -1,0 +1,100 @@
+[
+    {
+      "projectsID": 1,
+      "projectName": "URL Shortener and QR Generator",
+      "projectDescription": "URL Shortener and QR Generator is a web application that provides two main functionalities, Shortens long URLs using the TinyURL API and generates QR codes for the shortened URLs using the react-qr-code library. The project is built with React and TypeScript, with a fully responsive interface designed with Material UI. It demonstrates integration of external APIs and libraries to create a practical tool for URL management and sharing.",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "HTML",
+        "CSS",
+        "Material UI",
+        "Axios",
+        "Git",
+        "GitHub",
+        "Moment.js",
+        "Postman"
+      ],
+      "links": {
+        "netlifyLink": "https://shorterurls.netlify.app/",
+        "repoLink": "https://github.com/AbdulmalekAli60/URL-Shortener-QR-Code-Generator-using-React"
+      }
+    },
+    {
+      "projectsID": 2,
+      "projectName": "Weather App",
+      "projectDescription": "This project is a Weather App that provides real-time weather information such as the current temperature and weather conditions, as well as the minimum and maximum temperature based on users' location. Built with React. It serves as a practical application of the concepts and skills I have learned previously, including creating context providers, passing props, making API requests, and using libraries like Moment.js and i18next. The app features a fully responsive interface designed with Material UI and supports multiple languages (Arabic and English).",
+      "techStack": [
+        "React",
+        "i18next",
+        "HTML",
+        "CSS",
+        "Material UI",
+        "Axios",
+        "Git",
+        "GitHub",
+        "Postman"
+      ],
+      "links": {
+        "netlifyLink": "https://weahter.netlify.app/",
+        "repoLink": "https://github.com/AbdulmalekAli60/weather-API-in-React"
+      }
+    },
+    {
+      "projectsID": 3,
+      "projectName": "Prayer Times",
+      "projectDescription": "Prayer Times is a web application that displays the timings for the five daily Islamic prayers in three different cities. Using Aladhan API to fetch accurate prayer times and shows the remaining time until each prayer by using Moment.js library. The project is built with React and TypeScript, and interface built using Material UI.",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "Moment.js",
+        "HTML",
+        "CSS",
+        "Material UI",
+        "Axios",
+        "Git",
+        "GitHub",
+        "Postman"
+      ],
+      "links": {
+        "netlifyLink": "https://timingsprayer.netlify.app/",
+        "repoLink": "https://github.com/AbdulmalekAli60/Prayer-Times-Using-React"
+      }
+    },
+    {
+      "projectsID": 4,
+      "projectName": "Tasks app",
+      "projectDescription": "This project is a Tasks App that helps users manage their tasks by organizing them and controlling their states (completed, uncompleted, deleted), as well as updating them. Tasks are saved locally for persistence across sessions. The app is built using React and features a fully responsive and intuitive interface designed with Material UI.",
+      "techStack": [
+        "React",
+        "HTML",
+        "CSS",
+        "Material UI",
+        "Git",
+        "GitHub"
+      ],
+      "links": {
+        "netlifyLink": "https://tasksly.netlify.app/",
+        "repoLink": "https://github.com/AbdulmalekAli60/todo-List-Project-using-React"
+      }
+    },
+    {
+      "projectsID": 5,
+      "projectName": "Social Media App",
+      "projectDescription": "This project is a social media-like application developed using the Tarmeez API. It provides core functionalities of a social media platform, allowing users to create accounts, sign in, create posts, comment on posts, and manage their user accounts, including profile picture updates. Working on this app helped in gaining skills in API integration, user authentication, and creating fully responsive and interactive web applications.",
+      "techStack": [
+        "JavaScript ",
+        "Bootstrap",
+        "HTML",
+        "CSS",
+        "Axios",
+        "Git",
+        "GitHub",
+        "Postman"
+      ],
+      "links": {
+        "netlifyLink": "https://monumental-banoffee-176fef.netlify.app/",
+        "repoLink": "https://github.com/AbdulmalekAli60/Social-Media-Project"
+      }
+    }
+  ]
