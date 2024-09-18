@@ -8,7 +8,10 @@
     <script>
       (function () {
         var theme = localStorage.getItem("theme") || "light";
+        var language = localStorage.getItem("language") || "en";
+        document.documentElement.classList.add(language);
         document.documentElement.classList.add(theme);
+        document.documentElement.lang = language;
       })();
     </script>
   </head>

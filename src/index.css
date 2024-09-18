@@ -15,6 +15,10 @@
   box-sizing: border-box;
 }
 
+html.ar{
+  direction: rtl;
+}
+
 /* Custom Fonts */
 @font-face {
   font-family: Staatliches;

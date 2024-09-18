@@ -82,6 +82,7 @@ export default function Projects({
                   <a
                     href={links.netlifyLink}
                     style={{ color: "white" }}
+                    target="_blank"
                     className="w-full bg-visitWebsiteButtonColor dark:bg-darkVisitWebsiteButtonColor text-center py-2 px-4 rounded-lg  flex items-center justify-center"
                   >
                     <ExternalLink className="mr-2" size={20} />
@@ -90,6 +91,7 @@ export default function Projects({
                   <a
                     href={links.repoLink}
                     style={{ color: "white" }}
+                    target="_blank"
                     className=" w-full text-center bg-gitHubButtonColor dark:bg-darkGitHubButtonColor py-2 px-4 rounded-lg flex items-center justify-center"
                   >
                     <Github className="mr-2" size={20} />

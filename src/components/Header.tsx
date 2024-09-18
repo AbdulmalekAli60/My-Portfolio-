@@ -2,14 +2,16 @@
 import useTheme from "../hocks/useTheme.tsx";
 
 // External Libraries
-import { Languages } from "lucide-react";
+// import { Languages } from "lucide-react";
 import img from "../assets/av.jpeg";
+import useLanguage from "../hocks/useLanguage.tsx";
 
 import { HashLink as Link } from "react-router-hash-link";
 // External Libraries
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
-  console.log(theme);
+  const { language, toggleLanguage } = useLanguage();
+  console.log(language);
 
   return (
     <div className="mb-24">
@@ -19,8 +21,12 @@ export default function Header() {
         {/* Language and dark mode buttons */}
 
         <div className="flex justify-between mr-10   gap-2">
-          <button className=" rounded-3xl p-3 flex justify-center items-center text-textMain dark:text-darkTextMain hover:opacity-55  transition-colors duration-300">
-            <Languages />
+          <button
+            onClick={toggleLanguage}
+            className=" rounded-3xl p-3 flex justify-center items-center text-textMain dark:text-darkTextMain hover:opacity-55  transition-colors duration-300"
+          >
+            {/* <Languages /> */}
+            {language === "en" ? "العربية" : "English"}
           </button>
 
           <button
