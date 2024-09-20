@@ -1,17 +1,23 @@
 // import { useState } from "react";
 import useTheme from "../hocks/useTheme.tsx";
-
+import { useTranslation } from "react-i18next";
 // External Libraries
 // import { Languages } from "lucide-react";
 import img from "../assets/av.jpeg";
-import useLanguage from "../hocks/useLanguage.tsx";
+import {useLanguage} from "../contexts/LanguageContext.tsx";
 
 import { HashLink as Link } from "react-router-hash-link";
+import { useEffect } from "react";
 // External Libraries
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage } = useLanguage();
-  console.log(language);
+  const { t, i18n } = useTranslation("Header");
+
+
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [i18n, language]);
 
   return (
     <div className="mb-24">
@@ -80,18 +86,25 @@ export default function Header() {
 
       {/* Header */}
       <header className="mt-24">
-        <h1 className="text-textMain dark:text-darkTextMain font-mainFont text-4xl sm:text-5xl md:text-7xl lg:text-9xl xl:text-[12rem] 2xl:text-[14rem] leading-tight sm:leading-none text-center mb-4 sm:mb-6 md:mb-8">
-          Abdulmalek
+        <h1
+          className={`text-textMain dark:text-darkTextMain font-bold  ${
+            language === "ar" ? "font-mainArabic" : "font-mainFont"
+          } text-4xl sm:text-5xl md:text-7xl lg:text-9xl xl:text-[12rem] 2xl:text-[14rem] leading-tight sm:leading-none text-center mb-4 sm:mb-6 md:mb-8`}
+        >
+          {t("Abdulmalek", { ns: "Header" })}
         </h1>
 
         {/* p container */}
         <div className="max-w-3xl">
-          <p className="mt-16 text-left text-lg font-secundryFont text-textMain dark:text-darkTextMain">
-            Unleashing the future of innovation in software development and
-            turning ideas into reality, this is the portfolio of a student
-            championing the software world. This is the gateway to marvel at the
-            spectacular world of coding, a glimpse into the impressive foray of
-            projects undertaken.
+          <p
+            className={`mt-16 text-left text-lg ${
+              language === "ar" ? "font-secondryArabic" : "font-secundryFont"
+            }  text-textMain dark:text-darkTextMain`}
+          >
+            {t(
+              "An undergraduate software engineering student. I strive to learn the best practices in software development and how to implement different functionalities. Proficient in Java, ReactJS, NodeJS. Eager to leverage my strong academic foundation in real-world projects. Particularly interested in web development.",
+              { ns: "Header" }
+            )}
           </p>
         </div>
         {/* ===p container=== */}
@@ -99,8 +112,12 @@ export default function Header() {
         {/* Button Container */}
         <div className="flex justify-start ">
           <Link smooth to="#contact">
-            <button className="px-4 py-2 mt-5 tracking-widest bg-black  text-buttonColor dark:text-darkButtonColor border-white text-base font-bold font-secundryFont rounded-xl">
-              Contact
+            <button
+              className={`px-4 py-2 mt-5 tracking-widest bg-black  text-buttonColor dark:text-darkButtonColor border-white text-base font-bold ${
+                language === "ar" ? "font-secondryArabic" : "font-secundryFont"
+              }  rounded-xl`}
+            >
+              {t("Contact", { ns: "Header" })}
             </button>
           </Link>
         </div>

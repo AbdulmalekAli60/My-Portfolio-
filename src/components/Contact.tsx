@@ -1,8 +1,10 @@
 // External Librarise
 import emailjs from "@emailjs/browser";
-import { Loader, Check } from "lucide-react";
+import { Loader, Check, PersonStanding, User, User2 } from "lucide-react";
 // emailjs.init(import.meta.env.VITE_EMAILJS_API_KEY);
 // External Librarise
+import { useLanguage } from "../contexts/LanguageContext";
+import { useTranslation } from "react-i18next";
 // React
 import { ChangeEvent, useState, FormEvent } from "react";
 // React
@@ -41,6 +43,9 @@ const Input = ({
   );
 };
 export default function Contact() {
+  const { language } = useLanguage();
+  const { t } = useTranslation("Contact");
+
   const [emailInformation, setEmailInformation] = useState<EmailInfo>({
     from_name: "",
     from_email: "",
