@@ -1,100 +1,103 @@
 [
-    {
-      "projectsID": 1,
-      "projectName": "URL Shortener and QR Generator",
-      "projectDescription": "URL Shortener and QR Generator is a web application that provides two main functionalities, Shortens long URLs using the TinyURL API and generates QR codes for the shortened URLs using the react-qr-code library. The project is built with React and TypeScript, with a fully responsive interface designed with Material UI. It demonstrates integration of external APIs and libraries to create a practical tool for URL management and sharing.",
-      "techStack": [
-        "React",
-        "TypeScript",
-        "HTML",
-        "CSS",
-        "Material UI",
-        "Axios",
-        "Git",
-        "GitHub",
-        "Moment.js",
-        "Postman"
-      ],
-      "links": {
-        "netlifyLink": "https://shorterurls.netlify.app/",
-        "repoLink": "https://github.com/AbdulmalekAli60/URL-Shortener-QR-Code-Generator-using-React"
-      }
-    },
-    {
-      "projectsID": 2,
-      "projectName": "Weather App",
-      "projectDescription": "This project is a Weather App that provides real-time weather information such as the current temperature and weather conditions, as well as the minimum and maximum temperature based on users' location. Built with React. It serves as a practical application of the concepts and skills I have learned previously, including creating context providers, passing props, making API requests, and using libraries like Moment.js and i18next. The app features a fully responsive interface designed with Material UI and supports multiple languages (Arabic and English).",
-      "techStack": [
-        "React",
-        "i18next",
-        "HTML",
-        "CSS",
-        "Material UI",
-        "Axios",
-        "Git",
-        "GitHub",
-        "Postman"
-      ],
-      "links": {
-        "netlifyLink": "https://weahter.netlify.app/",
-        "repoLink": "https://github.com/AbdulmalekAli60/weather-API-in-React"
-      }
-    },
-    {
-      "projectsID": 3,
-      "projectName": "Prayer Times",
-      "projectDescription": "Prayer Times is a web application that displays the timings for the five daily Islamic prayers in three different cities. Using Aladhan API to fetch accurate prayer times and shows the remaining time until each prayer by using Moment.js library. The project is built with React and TypeScript, and interface built using Material UI.",
-      "techStack": [
-        "React",
-        "TypeScript",
-        "Moment.js",
-        "HTML",
-        "CSS",
-        "Material UI",
-        "Axios",
-        "Git",
-        "GitHub",
-        "Postman"
-      ],
-      "links": {
-        "netlifyLink": "https://timingsprayer.netlify.app/",
-        "repoLink": "https://github.com/AbdulmalekAli60/Prayer-Times-Using-React"
-      }
-    },
-    {
-      "projectsID": 4,
-      "projectName": "Tasks app",
-      "projectDescription": "This project is a Tasks App that helps users manage their tasks by organizing them and controlling their states (completed, uncompleted, deleted), as well as updating them. Tasks are saved locally for persistence across sessions. The app is built using React and features a fully responsive and intuitive interface designed with Material UI.",
-      "techStack": [
-        "React",
-        "HTML",
-        "CSS",
-        "Material UI",
-        "Git",
-        "GitHub"
-      ],
-      "links": {
-        "netlifyLink": "https://tasksly.netlify.app/",
-        "repoLink": "https://github.com/AbdulmalekAli60/todo-List-Project-using-React"
-      }
-    },
-    {
-      "projectsID": 5,
-      "projectName": "Social Media App",
-      "projectDescription": "This project is a social media-like application developed using the Tarmeez API. It provides core functionalities of a social media platform, allowing users to create accounts, sign in, create posts, comment on posts, and manage their user accounts, including profile picture updates. Working on this app helped in gaining skills in API integration, user authentication, and creating fully responsive and interactive web applications.",
-      "techStack": [
-        "JavaScript ",
-        "Bootstrap",
-        "HTML",
-        "CSS",
-        "Axios",
-        "Git",
-        "GitHub",
-        "Postman"
-      ],
-      "links": {
-        "netlifyLink": "https://monumental-banoffee-176fef.netlify.app/",
-        "repoLink": "https://github.com/AbdulmalekAli60/Social-Media-Project"
-      }
+  {
+    "projectsID": 1,
+    "projectName": "URL Shortener and QR Generator",
+    "projectNameArabic": "إختصار الروابط وإنشاء رموز QR",
+    "projectDescription": "URL Shortener and QR Generator is a web application that provides two main functionalities, Shortens long URLs using the TinyURL API and generates QR codes for the shortened URLs using the react-qr-code library. The project is built with React and TypeScript, with a fully responsive interface designed with Material UI. It demonstrates integration of external APIs and libraries to create a practical tool for URL management and sharing.",
+    "projectDescriptionArabic": "إختصار الروابط وإنشاء رموز QR هو تطبيق ويب يوفر وظيفتين رئيسيتين، تقصير الروابط الطويلة باستخدام واجهة برمجة تطبيقات TinyURL وإنشاء رموز QR للروابط المختصرة باستخدام مكتبة react-qr-code. تم بناء المشروع باستخدام React و TypeScript، مع واجهة متجاوبة بالكامل مصممة باستخدام Material UI. يهدف الى المشروع دمج واجهات برمجة التطبيقات والمكتبات الخارجية لإنشاء أداة عملية لإدارة ومشاركة الروابط.",
+    "techStack": [
+      "React",
+      "TypeScript",
+      "HTML",
+      "CSS",
+      "Material UI",
+      "Axios",
+      "Git",
+      "GitHub",
+      "Moment.js",
+      "Postman"
+    ],
+    "links": {
+      "netlifyLink": "https://shorterurls.netlify.app/",
+      "repoLink": "https://github.com/AbdulmalekAli60/URL-Shortener-QR-Code-Generator-using-React"
     }
-  ]
+  },
+  {
+    "projectsID": 2,
+    "projectName": "Weather App",
+    "projectNameArabic": "تطبيق الطقس",
+    "projectDescription": "This project is a Weather App that provides real-time weather information such as the current temperature and weather conditions, as well as the minimum and maximum temperature based on users' location. Built with React. It serves as a practical application of the concepts and skills I have learned previously, including creating context providers, passing props, making API requests, and using libraries like Moment.js and i18next. The app features a fully responsive interface designed with Material UI and supports multiple languages (Arabic and English).",
+    "projectDescriptionArabic": " المشروع عبارة عن تطبيق للطقس يوفر معلومات الطقس في الوقت الفعلي مثل درجة الحرارة الحالية وظروف الطقس، بالإضافة إلى درجات الحرارة الدنيا والقصوى بناءً على موقع المستخدم. تم بناؤه باستخدام React. هذا المشروع يمثل تطبيقًا عمليًا للمفاهيم والمهارات التي تعلمتها سابقًا، بما في ذلك إنشاء موفري السياق، وتمرير الخصائص الى مكونات الصفحة المختلفة، وإجراء طلبات API، واستخدام مكتبات مثل Moment.js و i18next. يتميز التطبيق بواجهة متجاوبة بالكامل مصممة باستخدام Material UI ويدعم لغات متعددة (العربية والإنجليزية).",
+    "techStack": [
+      "React",
+      "i18next",
+      "HTML",
+      "CSS",
+      "Material UI",
+      "Axios",
+      "Git",
+      "GitHub",
+      "Postman"
+    ],
+    "links": {
+      "netlifyLink": "https://weahter.netlify.app/",
+      "repoLink": "https://github.com/AbdulmalekAli60/weather-API-in-React"
+    }
+  },
+  {
+    "projectsID": 3,
+    "projectName": "Prayer Times",
+    "projectNameArabic": "أوقات الصلاة",
+    "projectDescription": "Prayer Times is a web application that displays the timings for the five daily Islamic prayers in three different cities. Using Aladhan API to fetch accurate prayer times and shows the remaining time until each prayer by using Moment.js library. The project is built with React and TypeScript, and interface built using Material UI.",
+    "projectDescriptionArabic": "أوقات الصلاة هو تطبيق ويب يعرض مواقيت الصلوات الخمس اليومية في ثلاث مدن مختلفة. يستخدم واجهة برمجة تطبيقات Aladhan لجلب أوقات الصلاة الدقيقة ويعرض الوقت المتبقي حتى كل صلاة باستخدام مكتبة Moment.js. تم بناء المشروع باستخدام React و TypeScript، وتم بناء الواجهة باستخدام Material UI.",
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Moment.js",
+      "HTML",
+      "CSS",
+      "Material UI",
+      "Axios",
+      "Git",
+      "GitHub",
+      "Postman"
+    ],
+    "links": {
+      "netlifyLink": "https://timingsprayer.netlify.app/",
+      "repoLink": "https://github.com/AbdulmalekAli60/Prayer-Times-Using-React"
+    }
+  },
+  {
+    "projectsID": 4,
+    "projectName": "Tasks app",
+    "projectNameArabic": "تطبيق المهام",
+    "projectDescription": "This project is a Tasks App that helps users manage their tasks by organizing them and controlling their states (completed, uncompleted, deleted), as well as updating them. Tasks are saved locally for persistence across sessions. The app is built using React and features a fully responsive and intuitive interface designed with Material UI.",
+    "projectDescriptionArabic": "هذا المشروع هو تطبيق للمهام يساعد المستخدمين على إدارة مهامهم من خلال تنظيمها والتحكم في حالاتها (مكتملة، غير مكتملة، محذوفة)، بالإضافة إلى تحديثها. يتم حفظ المهام بشكل محلي على جهاز المستخدم. تم بناء التطبيق باستخدام React ويتميز بواجهة متجاوبة بالكامل وبديهية مصممة باستخدام Material UI.",
+    "techStack": ["React", "HTML", "CSS", "Material UI", "Git", "GitHub"],
+    "links": {
+      "netlifyLink": "https://tasksly.netlify.app/",
+      "repoLink": "https://github.com/AbdulmalekAli60/todo-List-Project-using-React"
+    }
+  },
+  {
+    "projectsID": 5,
+    "projectName": "Social Media App",
+    "projectNameArabic": "تطبيق التواصل الاجتماعي",
+    "projectDescription": "This project is a social media-like application developed using the Tarmeez API. It provides core functionalities of a social media platform, allowing users to create accounts, sign in, create posts, comment on posts, and manage their user accounts, including profile picture updates. Working on this app helped in gaining skills in API integration, user authentication, and creating fully responsive and interactive web applications.",
+    "projectDescriptionArabic": "هذا المشروع هو تطبيق يشبه وسائل التواصل الاجتماعي تم تطويره باستخدام واجهة برمجة تطبيقات Tarmeez. يوفر الوظائف الأساسية لمنصة التواصل الاجتماعي، مما يسمح للمستخدمين بإنشاء حسابات، وتسجيل الدخول، وإنشاء منشورات، والتعليق على المنشورات، وإدارة حسابات المستخدمين الخاصة بهم، بما في ذلك تحديثات صورة الملف الشخصي. ساعد العمل على هذا التطبيق في اكتساب مهارات في دمج واجهة برمجة التطبيقات، والتأكد من هويةالمستخدم بإستخدام Bearer Token authentication، وإنشاء تطبيقات ويب متجاوبة بالكامل وتفاعلية.",
+    "techStack": [
+      "JavaScript ",
+      "Bootstrap",
+      "HTML",
+      "CSS",
+      "Axios",
+      "Git",
+      "GitHub",
+      "Postman"
+    ],
+    "links": {
+      "netlifyLink": "https://monumental-banoffee-176fef.netlify.app/",
+      "repoLink": "https://github.com/AbdulmalekAli60/Social-Media-Project"
+    }
+  }
+]

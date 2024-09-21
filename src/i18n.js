@@ -13,7 +13,7 @@ i18n
     interpolation: {
       escapeValue: false,
     },
-    ns: ["Header", "Projects", "Contact", "Footer"],
+    ns: ["Header", "Projects", "Contact", "Footer", "NavigationMenu"],
     defaultNS: "Header",
     backend: {
       loadPath: "/locales/{{lng}}/{{ns}}.json",

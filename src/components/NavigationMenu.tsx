@@ -1,10 +1,27 @@
+// React
 import { useState, useEffect } from "react";
+// React
+
+//Components + hocks
+import { useLanguage } from "../contexts/LanguageContext";
+//Components + hocks
+
+//External Library
 import { Menu, X } from "lucide-react";
 import { HashLink as Link } from "react-router-hash-link";
+import { useTranslation } from "react-i18next";
+//External Library
 
 export default function NavigationMenu() {
   const [isVisible, setIsVisible] = useState(false);
-
+  const { language } = useLanguage();
+  const { t } = useTranslation("NavigationMenu");
+  const arStyles = `${
+    language === "ar"
+      ? "font-secondryArabic tracking-normal"
+      : "font-secundryFont tracking-widest"
+  }`;
+  const nameSpace = { ns: "NavigationMenu" };
   // Remove name of section
   useEffect(() => {
     const handleScroll = () => {
@@ -60,14 +77,16 @@ export default function NavigationMenu() {
             : "clip-path-circle-0 pointer-events-none fixed"
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full text-textMain font-secundryFont">
+        <div
+          className={`flex flex-col items-center justify-center h-full text-textMain ${arStyles}`}
+        >
           <nav className="text-4xl flex flex-col space-y-10">
             <Link
               smooth
               to="#home"
               className="block hover:opacity-75 transition-colors"
             >
-              Home
+              {t("Home", nameSpace)}
             </Link>
 
             <Link
@@ -75,7 +94,7 @@ export default function NavigationMenu() {
               to="#projects"
               className="block hover:opacity-75 transition-colors"
             >
-              Projects
+              {t("Projects", nameSpace)}
             </Link>
 
             <Link
@@ -83,7 +102,7 @@ export default function NavigationMenu() {
               to="#contact"
               className="block hover:opacity-75 transition-colors"
             >
-              Contact
+              {t("Contact", nameSpace)}
             </Link>
           </nav>
         </div>

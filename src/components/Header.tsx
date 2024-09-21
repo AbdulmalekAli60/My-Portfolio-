@@ -1,19 +1,23 @@
-// import { useState } from "react";
-import useTheme from "../hocks/useTheme.tsx";
+// External Libraries
 import { useTranslation } from "react-i18next";
-// External Libraries
-// import { Languages } from "lucide-react";
-import img from "../assets/av.jpeg";
-import {useLanguage} from "../contexts/LanguageContext.tsx";
-
 import { HashLink as Link } from "react-router-hash-link";
-import { useEffect } from "react";
 // External Libraries
+
+// Components + data
+import img from "../assets/av.jpeg";
+import { useLanguage } from "../contexts/LanguageContext.tsx";
+import useTheme from "../hocks/useTheme.tsx";
+// Components + data
+
+// React
+import { useEffect } from "react";
+// React
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage } = useLanguage();
   const { t, i18n } = useTranslation("Header");
-
+  const isAr = language === "ar";
+  const nameSpace = { ns: "Header" };
 
   useEffect(() => {
     i18n.changeLanguage(language);
@@ -88,22 +92,24 @@ export default function Header() {
       <header className="mt-24">
         <h1
           className={`text-textMain dark:text-darkTextMain font-bold  ${
-            language === "ar" ? "font-mainArabic" : "font-mainFont"
+            isAr ? "font-mainArabic" : "font-mainFont"
           } text-4xl sm:text-5xl md:text-7xl lg:text-9xl xl:text-[12rem] 2xl:text-[14rem] leading-tight sm:leading-none text-center mb-4 sm:mb-6 md:mb-8`}
         >
-          {t("Abdulmalek", { ns: "Header" })}
+          {t("Abdulmalek", nameSpace)}
         </h1>
 
         {/* p container */}
         <div className="max-w-3xl">
           <p
             className={`mt-16 text-left text-lg ${
-              language === "ar" ? "font-secondryArabic" : "font-secundryFont"
+              language === "ar"
+                ? "font-secondryArabic text-right"
+                : "font-secundryFont text-left"
             }  text-textMain dark:text-darkTextMain`}
           >
             {t(
               "An undergraduate software engineering student. I strive to learn the best practices in software development and how to implement different functionalities. Proficient in Java, ReactJS, NodeJS. Eager to leverage my strong academic foundation in real-world projects. Particularly interested in web development.",
-              { ns: "Header" }
+              nameSpace
             )}
           </p>
         </div>
@@ -117,7 +123,7 @@ export default function Header() {
                 language === "ar" ? "font-secondryArabic" : "font-secundryFont"
               }  rounded-xl`}
             >
-              {t("Contact", { ns: "Header" })}
+              {t("Contact", nameSpace)}
             </button>
           </Link>
         </div>

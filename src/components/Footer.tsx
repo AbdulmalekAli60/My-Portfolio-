@@ -1,16 +1,24 @@
 // External Lbraries
 import { GithubIcon, Laptop, Linkedin } from "lucide-react";
 // import { Twitter } from "lucide-react";
-// External Lbraries
-import {useLanguage} from "../contexts/LanguageContext";
 import { useTranslation } from "react-i18next";
+// External Lbraries
+
+// Components + hocks
+import { useLanguage } from "../contexts/LanguageContext";
+// Components + hocks
 
 export default function Footer() {
   const date = new Date();
   const year = date.getFullYear();
   const { language } = useLanguage();
   const { t } = useTranslation("Footer");
-  
+  const arStyles = `${
+    language === "ar"
+      ? " font-secondryArabic tracking-normal "
+      : "font-secundryFont tracking-widest"
+  }`;
+  const nameSpace = { ns: "Footer" };
   return (
     <footer>
       {/* Icon and rights container */}
@@ -18,11 +26,9 @@ export default function Footer() {
         <Laptop size={80} className="dark:text-white" />
 
         <p
-          className={`text-textMain dark:text-darkTextMain ${
-            language === "ar" ? "font-secondryArabic" : "font-secundryFont"
-          } leading-6 text-xl`}
+          className={`text-textMain dark:text-darkTextMain ${arStyles} leading-6 text-xl`}
         >
-          {t("All Rights Reserved", { ns: "Footer" })}
+          {t("All Rights Reserved", nameSpace)}
         </p>
       </div>
       {/* === Icon and rights container === */}

@@ -1,50 +1,82 @@
-// External Librarise
+// External Libraries
 import emailjs from "@emailjs/browser";
-import { Loader, Check, PersonStanding, User, User2 } from "lucide-react";
-// emailjs.init(import.meta.env.VITE_EMAILJS_API_KEY);
-// External Librarise
-import { useLanguage } from "../contexts/LanguageContext";
 import { useTranslation } from "react-i18next";
+import { Loader, Check, Mail, Book, User } from "lucide-react";
+// External Libraries
+
 // React
 import { ChangeEvent, useState, FormEvent } from "react";
 // React
 
+// Components + hocks
+import { useLanguage } from "../contexts/LanguageContext";
+// Components + hocks
 interface EmailInfo {
   from_name: string;
   from_email: string;
   subject: string;
   message: string;
 }
+
 interface InputProps {
   inputName: string;
-  placeHolder?: string;
   stateValue: string;
   changeInputValue: (event: ChangeEvent<HTMLInputElement>) => void;
+  icon: React.ReactNode;
 }
+
 const Input = ({
   inputName,
-  placeHolder,
   stateValue,
   changeInputValue,
+  icon,
 }: InputProps) => {
+  const { language } = useLanguage();
+  const { t } = useTranslation("Contact");
+  const arStyles = `${
+    language === "ar"
+      ? "font-secondryArabic tracking-normal"
+      : "font-secundryFont tracking-widest"
+  }`;
+  const namespace = { ns: "Contact" };
   return (
     <div className="w-full mb-3">
-      <span className="font-secundryFont font-bold flex justify-start text-textMain dark:text-darkTextMain tracking-widest mb-1">
-        {inputName}
+      <span
+        className={`${arStyles} font-bold flex justify-start text-textMain dark:text-darkTextMain mb-1`}
+      >
+        {t(inputName, namespace)}
       </span>
-      <input
-        type="text"
-        placeholder={placeHolder}
-        value={stateValue}
-        onChange={changeInputValue}
-        className="py-3 px-4 w-full border-buttonColor rounded-lg text-sm bg-backGroundColor dark:bg-darkBackGroundColor"
-      />
+      <div className="relative">
+        <div
+          className={`absolute top-1/2 transform -translate-y-1/2 ${
+            language === "ar" ? "right-3" : "left-3"
+          } pointer-events-none`}
+        >
+          {icon}
+        </div>
+        <input
+          type="text"
+          value={stateValue}
+          onChange={changeInputValue}
+          className={`py-3 w-full border-buttonColor rounded-lg text-sm bg-backGroundColor dark:bg-darkBackGroundColor
+                     ${language === "ar" ? "pr-10 pl-4" : "pl-10 pr-4"}`}
+          // style={{ direction: language === "ar" ? 'rtl' : 'ltr' }}
+        />
+      </div>
     </div>
   );
 };
+
 export default function Contact() {
+  const namespace = { ns: "Contact" };
+
   const { language } = useLanguage();
   const { t } = useTranslation("Contact");
+  const arStyles = `${
+    language === "ar"
+      ? "font-secondryArabic tracking-normal"
+      : "font-secundryFont tracking-widest"
+  }`;
 
   const [emailInformation, setEmailInformation] = useState<EmailInfo>({
     from_name: "",
@@ -52,9 +84,7 @@ export default function Contact() {
     subject: "",
     message: "",
   });
-  const [sendingState, setSendingState] = useState<string>("default"); // 'default', 'sending', 'sent'
-
-  // const formRef = useRef<HTMLFormElement>(null);
+  const [sendingState, setSendingState] = useState<string>("default");
 
   const handleInputChange =
     (field: keyof EmailInfo) =>
@@ -102,37 +132,38 @@ export default function Contact() {
 
   return (
     <div className="mb-24" id="contact">
-      <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-24 mb-10">
-        <h1 className="text-footerColor dark:text-darkFooterColor font-mainFont font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-widest text-center">
-          Contact
+      <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-28 mb-10">
+        <h1
+          className={`text-footerColor dark:text-darkFooterColor mb-5 ${arStyles} font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center`}
+        >
+          {t("Contact", namespace)}
         </h1>
-        {/* form container */}
         <div className="max-w-md mx-auto">
           <form onSubmit={handleSendEmail} className="flex flex-col">
             <Input
               inputName="Name"
               stateValue={emailInformation.from_name}
               changeInputValue={handleInputChange("from_name")}
-              placeHolder="Your Name"
+              icon={<User size={18} className="text-gray-400" />}
             />
             <Input
               inputName="Email"
               stateValue={emailInformation.from_email}
               changeInputValue={handleInputChange("from_email")}
-              placeHolder="Your Email"
+              icon={<Mail size={18} className="text-gray-400" />}
             />
             <Input
               inputName="Subject"
               stateValue={emailInformation.subject}
               changeInputValue={handleInputChange("subject")}
-              placeHolder="Subject"
+              icon={<Book size={18} className="text-gray-400" />}
             />
             <div className="w-full mb-3">
               <label
                 htmlFor="message"
-                className="font-secundryFont font-bold flex justify-start text-textMain dark:text-darkTextMain tracking-widest mb-1"
+                className={`${arStyles} font-bold flex justify-start text-textMain dark:text-darkTextMain mb-1`}
               >
-                Message
+                {t("Message", namespace)}
               </label>
               <textarea
                 id="message"
@@ -146,10 +177,10 @@ export default function Contact() {
             </div>
             <button
               type="submit"
-              className="px-4 py-2 mt-5 tracking-widest w-full opacity-100 hover:opacity-70 transition-all duration-300 bg-contactButtonColor text-base font-secundryFont rounded-xl"
+              className={`${arStyles} px-4 py-2 mt-5 w-full opacity-100 hover:opacity-70 transition-all duration-300 bg-contactButtonColor text-base rounded-xl`}
             >
               <div className="flex justify-center items-center">
-                {sendingState === "default" && "Send"}
+                {sendingState === "default" && t("Send")}
                 {sendingState === "sending" && (
                   <Loader className="mr-2 dark:text-white" />
                 )}
@@ -160,7 +191,6 @@ export default function Contact() {
             </button>
           </form>
         </div>
-        {/* form container */}
       </div>
     </div>
   );

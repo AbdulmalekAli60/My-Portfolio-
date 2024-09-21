@@ -1,11 +1,17 @@
 // External Librarise
 import { Code, ExternalLink, Github } from "lucide-react";
+import { useTranslation } from "react-i18next";
 // External Librarise
+
 // React
 import { useState } from "react";
 // React
 
+//Components + hocks
+import { useLanguage } from "../contexts/LanguageContext";
 import { Project } from "../App";
+//Components + hocks
+
 const TechStackItem = ({ tech }: { tech: string }) => (
   <span
     style={{ backgroundColor: "#e5e7eb" }}
@@ -16,12 +22,27 @@ const TechStackItem = ({ tech }: { tech: string }) => (
 );
 export default function Projects({
   projectName,
+  projectNameArabic,
   projectDescription,
+  projectDescriptionArabic,
   techStack,
   links,
 }: Project) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
+  const { language } = useLanguage();
+  const { t } = useTranslation("Projects");
+  const isAr = language === "ar";
+  const nameSpace = { ns: "Projects" };
+  const arStylesMainFont = `${
+    language === "ar"
+      ? " font-mainArabic tracking-normal "
+      : " font-mainFont tracking-widest "
+  }`;
+  const arStylesSecFont = `${
+    language === "ar"
+      ? " font-secondryArabic tracking-normal text-right "
+      : " font-secundryFont text-left "
+  }`;
   return (
     <>
       <div>
@@ -31,9 +52,9 @@ export default function Projects({
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
         >
-          <span>{projectName}</span>
+          <span>{isAr ? projectNameArabic : projectName}</span>
           <svg
-            className={`shrink-0 size-4 text-textMain dark:text-white transition-transform duration-300 ${
+            className={`shrink-0 size-4 text-textMain  dark:text-white transition-transform duration-300 ${
               isOpen ? "rotate-180" : ""
             }`}
             xmlns="http://www.w3.org/2000/svg"
@@ -55,18 +76,26 @@ export default function Projects({
           }`}
         >
           <div className="mt-5">
-            <div className="grid grid-cols-12 max-h-fit ">
-              <div className="col-span-12 bg-backGroundColor dark:bg-darkBackGroundColor  p-4 rounded-3xl mb-5 shadow-md hover:shadow-lg transition-all ease-in-out delay-150">
-                <h1 className="sm:text-3xl md:text-4xlfont-bold font-mainFont text-textMain dark:text-darkTextMain tracking-wide flex justify-start lg:text-5xl">
-                  What is the project?
+            <div className="grid grid-cols-12 max-h-fit">
+              <div className="col-span-12 bg-backGroundColor dark:bg-darkBackGroundColor p-4 rounded-3xl mb-5 shadow-md hover:shadow-lg transition-all ease-in-out delay-150">
+                <h1
+                  className={`sm:text-3xl md:text-4xl font-bold ${arStylesMainFont} ${
+                    isAr ? "mb-3" : ""
+                  } text-textMain dark:text-darkTextMain flex justify-start lg:text-5xl`}
+                >
+                  {t("What is the project?", nameSpace)}
                 </h1>
-                <p className="mb-4 font-secundryFont">{projectDescription}</p>
+                <p className={`mb-4 ${arStylesSecFont}`}>
+                  {isAr ? projectDescriptionArabic : projectDescription}
+                </p>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-5 h-full mb-10">
               <div className="col-span-1 bg-backGroundColor dark:bg-darkBackGroundColor  md:col-span-12 lg:col-span-6 rounded-3xl p-4 shadow-md hover:shadow-lg transition-all ease-in-out delay-150 ">
-                <h2 className="text-2xl text-textMain dark:text-darkTextMain md:text-3xl font-bold  tracking-wide mb-4 flex items-center">
-                  <Code className="mr-2" /> Tech Stack
+                <h2
+                  className={`${arStylesMainFont} text-2xl text-textMain dark:text-darkTextMain md:text-3xl font-bold  mb-4 flex items-center`}
+                >
+                  <Code className="m-4" /> {t("Tech Stack", nameSpace)}
                 </h2>
                 <p className="flex flex-wrap dark:text-darkTextMain">
                   {techStack.map((tech, indx) => {
@@ -75,8 +104,10 @@ export default function Projects({
                 </p>
               </div>
               <div className="lg:col-span-6 bg-backGroundColor dark:bg-darkBackGroundColor  md:col-span-12 rounded-3xl p-6 shadow-md hover:shadow-lg transition-all ease-in-out delay-150">
-                <h2 className="text-textMain dark:text-darkTextMain text-2xl md:text-3xl font-bold  tracking-wide mb-4 flex items-center">
-                  <ExternalLink className="mr-2" /> Links
+                <h2
+                  className={`${arStylesMainFont} text-textMain dark:text-darkTextMain text-2xl md:text-3xl font-bold   mb-4 flex items-center`}
+                >
+                  <ExternalLink className="m-4" /> {t("Links", nameSpace)}
                 </h2>
                 <div className="space-y-4 h-full w-full flex flex-col justify-evely gap-4">
                   <a
@@ -85,8 +116,8 @@ export default function Projects({
                     target="_blank"
                     className="w-full bg-visitWebsiteButtonColor dark:bg-darkVisitWebsiteButtonColor text-center py-2 px-4 rounded-lg  flex items-center justify-center"
                   >
-                    <ExternalLink className="mr-2" size={20} />
-                    Visit Website
+                    <ExternalLink className="m-2" size={20} />
+                    {t("Visit Website", nameSpace)}
                   </a>
                   <a
                     href={links.repoLink}
@@ -94,8 +125,8 @@ export default function Projects({
                     target="_blank"
                     className=" w-full text-center bg-gitHubButtonColor dark:bg-darkGitHubButtonColor py-2 px-4 rounded-lg flex items-center justify-center"
                   >
-                    <Github className="mr-2" size={20} />
-                    View on GitHub
+                    <Github className="m-2" size={20} />
+                    {t("View on GitHub", nameSpace)}
                   </a>
                 </div>
               </div>
