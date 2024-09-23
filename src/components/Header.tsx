@@ -1,6 +1,11 @@
 // External Libraries
 import { useTranslation } from "react-i18next";
 import { HashLink as Link } from "react-router-hash-link";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 // External Libraries
 
 // Components + data
@@ -10,7 +15,7 @@ import useTheme from "../hocks/useTheme.tsx";
 // Components + data
 
 // React
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 // React
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -18,6 +23,36 @@ export default function Header() {
   const { t, i18n } = useTranslation("Header");
   const isAr = language === "ar";
   const nameSpace = { ns: "Header" };
+
+  const headerRef = useRef<HTMLHeadingElement>(null);
+  const pRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      headerRef.current,
+
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+      }
+    );
+
+    gsap.fromTo(
+      pRef.current,
+
+      { opacity: 0, x: isAr ? 50 : -50 }, // inisals
+      {
+        // final
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power2.out",
+      }
+    );
+  }, []);
 
   useEffect(() => {
     i18n.changeLanguage(language);
@@ -91,7 +126,8 @@ export default function Header() {
       {/* Header */}
       <header className="mt-24">
         <h1
-          className={`text-textMain dark:text-darkTextMain font-bold  ${
+          ref={headerRef}
+          className={`text-textMain headerNameGSAP dark:text-darkTextMain font-bold  ${
             isAr ? "font-mainArabic" : "font-mainFont"
           } text-4xl sm:text-5xl md:text-7xl lg:text-9xl xl:text-[12rem] 2xl:text-[14rem] leading-tight sm:leading-none text-center mb-4 sm:mb-6 md:mb-8`}
         >
@@ -99,7 +135,7 @@ export default function Header() {
         </h1>
 
         {/* p container */}
-        <div className="max-w-3xl">
+        <div className="max-w-3xl" ref={pRef}>
           <p
             className={`mt-16 text-left text-lg ${
               language === "ar"

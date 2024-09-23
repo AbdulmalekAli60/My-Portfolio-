@@ -2,10 +2,14 @@
 import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
 import { Loader, Check, Mail, Book, User } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 // External Libraries
 
 // React
-import { ChangeEvent, useState, FormEvent } from "react";
+import { ChangeEvent, useState, FormEvent, useRef } from "react";
 // React
 
 // Components + hocks
@@ -60,7 +64,6 @@ const Input = ({
           onChange={changeInputValue}
           className={`py-3 w-full border-buttonColor rounded-lg text-sm bg-backGroundColor dark:bg-darkBackGroundColor
                      ${language === "ar" ? "pr-10 pl-4" : "pl-10 pr-4"}`}
-          // style={{ direction: language === "ar" ? 'rtl' : 'ltr' }}
         />
       </div>
     </div>
@@ -68,6 +71,7 @@ const Input = ({
 };
 
 export default function Contact() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const namespace = { ns: "Contact" };
 
   const { language } = useLanguage();
@@ -77,6 +81,25 @@ export default function Contact() {
       ? "font-secondryArabic tracking-normal"
       : "font-secundryFont tracking-widest"
   }`;
+
+  const isAr: boolean = language === "ar";
+  useGSAP(() => {
+    gsap.fromTo(
+      containerRef.current,
+      { opacity: 0, x: isAr ? 50 : -50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          toggleActions: "restart none none none",
+          // markers:true,
+        },
+      }
+    );
+  }, []);
 
   const [emailInformation, setEmailInformation] = useState<EmailInfo>({
     from_name: "",
@@ -132,7 +155,7 @@ export default function Contact() {
 
   return (
     <div className="mb-24" id="contact">
-      <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-28 mb-10">
+      <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-28 mb-10" ref={containerRef}>
         <h1
           className={`text-footerColor dark:text-darkFooterColor mb-5 ${arStyles} font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center`}
         >

@@ -1,10 +1,14 @@
 // External Librarise
 import { Code, ExternalLink, Github } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 // External Librarise
 
 // React
-import { useState } from "react";
+import { useRef, useState } from "react";
 // React
 
 //Components + hocks
@@ -27,6 +31,7 @@ export default function Projects({
   projectDescriptionArabic,
   techStack,
   links,
+  delay,
 }: Project) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { language } = useLanguage();
@@ -43,9 +48,29 @@ export default function Projects({
       ? " font-secondryArabic tracking-normal text-right "
       : " font-secundryFont text-left "
   }`;
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  useGSAP(() => {
+    gsap.fromTo(
+      containerRef.current,
+      { opacity: 0, x: isAr ? 50 : -50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          toggleActions: "restart none none none",
+          // markers:true,
+        },
+        delay: delay, //from props
+      }
+    );
+  }, [isAr, delay]);
   return (
     <>
-      <div>
+      <div ref={containerRef}>
         <button
           type="button"
           className="hs-collapse-toggle w-full mb-3 py-3 px-6 flex items-center justify-between gap-x-2 text-lg font-medium rounded-lg border border-textMain dark:border-darkTextMain text-textMain dark:text-darkTextMain focus:outline-none disabled:opacity-50 disabled:pointer-events-none"

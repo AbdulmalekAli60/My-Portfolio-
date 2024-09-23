@@ -17,14 +17,15 @@ import { useLanguage } from "./contexts/LanguageContext";
 export interface Project {
   projectsID: number;
   projectName: string;
-  projectNameArabic:string;
+  projectNameArabic: string;
   projectDescription: string;
-  projectDescriptionArabic:string
+  projectDescriptionArabic: string;
   techStack: string[];
   links: {
     netlifyLink: string;
     repoLink: string;
   };
+  delay?: number;
 }
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       ? " font-mainArabic tracking-normal "
       : " font-mainFont tracking-widest "
   }`;
+
   return (
     <div className="container" id="home">
       <NavigationMenu />
@@ -48,8 +50,8 @@ function App() {
         </h1>
       </div>
 
-      {projects.map((p) => {
-        return <Projects key={p.projectsID} {...p} />;
+      {projects.map((p, index) => {
+        return <Projects key={p.projectsID} delay={index * 0.1} {...p} />;
       })}
       <Contact />
       <Footer />
