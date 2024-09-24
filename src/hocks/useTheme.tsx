@@ -21,7 +21,8 @@ const useTheme = (): { theme: Theme; toggleTheme: () => void } => {
       return savedTheme;
     }
     const preferredTheme = getPreferredTheme();
-    localStorage.setItem("theme", preferredTheme);
+    // localStorage.setItem("theme", preferredTheme);
+    localStorage.setItem("theme", "light");
     return preferredTheme;
   };
 

@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 // External Libraries
 
 // Components + data
-import img from "../assets/av.jpeg";
+import img from "../assets/avatar.jpg";
 import { useLanguage } from "../contexts/LanguageContext.tsx";
 import useTheme from "../hocks/useTheme.tsx";
 // Components + data
