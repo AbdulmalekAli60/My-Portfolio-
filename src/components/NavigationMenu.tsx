@@ -41,8 +41,20 @@ export default function NavigationMenu() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isVisible]);
+
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-50">
       {/* Toggle Button */}
       <button
         onClick={() => setIsVisible(!isVisible)}
@@ -57,12 +69,11 @@ export default function NavigationMenu() {
 
       {/* Navigation Menu */}
       <div
-        className={`fixed inset-0 bg-navigationMenu transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-navigationMenu transition-[clip-path] duration-500 ease-in-out ${
           isVisible
-            ? "opacity-100 visible pointer-events-auto"
-            : "opacity-0 invisible pointer-events-none"
+            ? "clip-path-circle-100 pointer-events-auto"
+            : "clip-path-circle-0 pointer-events-none"
         }`}
-        onClick={() => setIsVisible(false)}
       >
         <div
           className={`flex flex-col items-center justify-center h-full text-textMain ${arStyles}`}
@@ -72,22 +83,23 @@ export default function NavigationMenu() {
               smooth
               to="#home"
               className="block hover:opacity-75 transition-colors"
+              onClick={() => setIsVisible(false)}
             >
               {t("Home", nameSpace)}
             </Link>
-
             <Link
               smooth
               to="#projects"
               className="block hover:opacity-75 transition-colors"
+              onClick={() => setIsVisible(false)}
             >
               {t("Projects", nameSpace)}
             </Link>
-
             <Link
               smooth
               to="#contact"
               className="block hover:opacity-75 transition-colors"
+              onClick={() => setIsVisible(false)}
             >
               {t("Contact", nameSpace)}
             </Link>

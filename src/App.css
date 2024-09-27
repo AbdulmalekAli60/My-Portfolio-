@@ -31,3 +31,29 @@ body {
 .clip-path-circle-100 {
   clip-path: circle(150% at top right);
 } */
+.clip-path-circle-0 {
+  clip-path: circle(0% at top right);
+}
+
+.clip-path-circle-100 {
+  clip-path: circle(150% at top right);
+}
+
+.bg-navigationMenu {
+  background-color: rgba(0, 0, 0, 0.9); /* Adjust the color and opacity as needed */
+}
+
+@media (max-width: 768px) {
+  .clip-path-circle-0,
+  .clip-path-circle-100 {
+    clip-path: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  }
+
+  .clip-path-circle-100 {
+    opacity: 1;
+    visibility: visible;
+  }
+}
