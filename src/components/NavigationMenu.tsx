@@ -1,31 +1,25 @@
-// React
 import { useState, useEffect } from "react";
-// React
-
-//Components + hocks
 import { useLanguage } from "../contexts/LanguageContext";
-//Components + hocks
-
-//External Library
 import { Menu, X } from "lucide-react";
 import { HashLink as Link } from "react-router-hash-link";
 import { useTranslation } from "react-i18next";
-//External Library
 
 export default function NavigationMenu() {
   const [isVisible, setIsVisible] = useState(false);
   const { language } = useLanguage();
   const { t } = useTranslation("NavigationMenu");
+
   const arStyles = `${
     language === "ar"
       ? "font-secondryArabic tracking-normal"
       : "font-secundryFont tracking-widest"
   }`;
+
   const nameSpace = { ns: "NavigationMenu" };
-  // Remove name of section
+
   useEffect(() => {
     const handleScroll = () => {
-      const hash = window.location.hash.substring(1); // Remove the "#"
+      const hash = window.location.hash.substring(1);
       if (hash) {
         const element = document.getElementById(hash);
         if (element) {
@@ -37,25 +31,18 @@ export default function NavigationMenu() {
             scrollPosition < offsetTop - windowHeight / 2 ||
             scrollPosition > offsetTop + offsetHeight - windowHeight / 2
           ) {
-            // Remove the hash from the URL
             window.history.replaceState(null, "", window.location.pathname);
           }
         }
       }
     };
 
-    //clean up
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  // === Remove name of section ===
 
   return (
-    <div
-      className={`fixed inset-0 overflow-hidden ${
-        isVisible ? "z-50" : "z-40 pointer-events-none"
-      }`}
-    >
+    <div className="fixed inset-0 overflow-hidden pointer-events-none">
       {/* Toggle Button */}
       <button
         onClick={() => setIsVisible(!isVisible)}
@@ -70,12 +57,12 @@ export default function NavigationMenu() {
 
       {/* Navigation Menu */}
       <div
-        onClick={() => setIsVisible(!isVisible)}
-        className={`fixed inset-0 bg-navigationMenu transition-[clip-path] duration-500 ease-in-out ${
+        className={`fixed inset-0 bg-navigationMenu transition-opacity duration-300 ${
           isVisible
-            ? "clip-path-circle-100 pointer-events-auto"
-            : "clip-path-circle-0 pointer-events-none fixed"
+            ? "opacity-100 visible pointer-events-auto"
+            : "opacity-0 invisible pointer-events-none"
         }`}
+        onClick={() => setIsVisible(false)}
       >
         <div
           className={`flex flex-col items-center justify-center h-full text-textMain ${arStyles}`}

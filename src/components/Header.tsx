@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 // External Libraries
 
 // Components + data
-import img from "../assets/avatar.jpg";
+// import img from "../assets/avatar.jpg";
 import { useLanguage } from "../contexts/LanguageContext.tsx";
 import useTheme from "../hocks/useTheme.tsx";
 // Components + data
@@ -61,8 +61,8 @@ export default function Header() {
   return (
     <div className="mb-24">
       {/* Nav  */}
-      <nav className="flex justify-between items-center">
-        <img src={img} alt="avavtar" className="w-10 h-10 rounded-full" />
+      <nav className="flex justify-start items-center">
+        {/* <img src={img} alt="avavtar" className="w-10 h-10 rounded-full" /> */}
         {/* Language and dark mode buttons */}
 
         <div className="flex justify-between mr-10   gap-2">
