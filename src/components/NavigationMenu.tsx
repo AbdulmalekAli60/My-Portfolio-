@@ -17,6 +17,7 @@ export default function NavigationMenu() {
 
   const nameSpace = { ns: "NavigationMenu" };
 
+  // url managment 
   useEffect(() => {
     const handleScroll = () => {
       const hash = window.location.hash.substring(1);
@@ -41,17 +42,17 @@ export default function NavigationMenu() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (isVisible) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+  // useEffect(() => {
+  //   if (isVisible) {
+  //     document.body.style.overflow = 'hidden';
+  //   } else {
+  //     document.body.style.overflow = '';
+  //   }
 
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isVisible]);
+  //   return () => {
+  //     document.body.style.overflow = '';
+  //   };
+  // }, [isVisible]);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-50">
