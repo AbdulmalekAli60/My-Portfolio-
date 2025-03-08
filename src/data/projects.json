@@ -1,6 +1,33 @@
 [
+
   {
     "projectsID": 1,
+    "projectName": "Waraqat",
+    "projectNameArabic": "تطبيق قراءة و كتابة المقالات",
+    "projectDescription": "Waraqat is a website for articles with minimal design inspired by Medium which is a website that I have benefited from a lot. This project started as a way for learning Spring Boot fundamentals and evolved to a full stack project, and as the project for Software Construction lab course in university. This project used JWT to secure the APIs.",
+    "projectDescriptionArabic": "ورقات هو موقع الكتروني للمقالات بتصميم بسيط مسوحى من موقع ميديوم وهو احد المواقع التي استفدت منها كثيرا, بدأ هذا المشروع كوسيلة لتعلم أساسيات إطار عمل جافا سبرنق بووت وتطور ليكون مشروع كامل. و مشروع لأحد مقررات الجامعة",
+    "techStack": [
+      "Spring Boot",
+      "NextJS",
+      "Tailwind",
+      "TypeScript",
+      "Axios",
+      "Git",
+      "GitHub",
+      "AWS RDS",
+      "Render (Web Service Deployment)",
+      "Vercel (Frontend Deployment)",
+      "MySQL",
+      "Docker"
+    ],
+    "links": {
+      "netlifyLink": "https://waraqat.vercel.app/Home",
+      "repoLink": "https://github.com/AbdulmalekAli60/Waraqat/tree/main"
+    }
+  },
+
+  {
+    "projectsID": 2,
     "projectName": "URL Shortener and QR Generator",
     "projectNameArabic": "إختصار الروابط وإنشاء رموز QR",
     "projectDescription": "URL Shortener and QR Generator is a web application that provides two main functionalities, Shortens long URLs using the TinyURL API and generates QR codes for the shortened URLs using the react-qr-code library. The project is built with React and TypeScript, with a fully responsive interface designed with Material UI. It demonstrates integration of external APIs and libraries to create a practical tool for URL management and sharing.",
@@ -23,7 +50,7 @@
     }
   },
   {
-    "projectsID": 2,
+    "projectsID": 3,
     "projectName": "Weather App",
     "projectNameArabic": "تطبيق الطقس",
     "projectDescription": "This project is a Weather App that provides real-time weather information such as the current temperature and weather conditions, as well as the minimum and maximum temperature based on users' location. Built with React. It serves as a practical application of the concepts and skills I have learned previously, including creating context providers, passing props, making API requests, and using libraries like Moment.js and i18next. The app features a fully responsive interface designed with Material UI and supports multiple languages (Arabic and English).",
@@ -45,7 +72,7 @@
     }
   },
   {
-    "projectsID": 3,
+    "projectsID": 4,
     "projectName": "Prayer Times",
     "projectNameArabic": "أوقات الصلاة",
     "projectDescription": "Prayer Times is a web application that displays the timings for the five daily Islamic prayers in three different cities. Using Aladhan API to fetch accurate prayer times and shows the remaining time until each prayer by using Moment.js library. The project is built with React and TypeScript, and interface built using Material UI.",
@@ -68,7 +95,7 @@
     }
   },
   {
-    "projectsID": 4,
+    "projectsID": 5,
     "projectName": "Tasks app",
     "projectNameArabic": "تطبيق المهام",
     "projectDescription": "This project is a Tasks App that helps users manage their tasks by organizing them and controlling their states (completed, uncompleted, deleted), as well as updating them. Tasks are saved locally for persistence across sessions. The app is built using React and features a fully responsive and intuitive interface designed with Material UI.",
@@ -80,7 +107,7 @@
     }
   },
   {
-    "projectsID": 5,
+    "projectsID": 6,
     "projectName": "Social Media App",
     "projectNameArabic": "تطبيق التواصل الاجتماعي",
     "projectDescription": "This project is a social media-like application developed using the Tarmeez API. It provides core functionalities of a social media platform, allowing users to create accounts, sign in, create posts, comment on posts, and manage their user accounts, including profile picture updates. Working on this app helped in gaining skills in API integration, user authentication, and creating fully responsive and interactive web applications.",
@@ -101,3 +128,4 @@
     }
   }
 ]
+
